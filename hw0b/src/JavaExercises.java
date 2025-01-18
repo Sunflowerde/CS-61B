@@ -34,7 +34,7 @@ public class JavaExercises {
         for (int i = 0; i < array.length; i++) {
             if (array[i] > max) {
                 max = array[i];
-            } else if (array[i] < min) {
+            } if (array[i] < min) {
                 min = array[i];
             }
         }
@@ -55,8 +55,17 @@ public class JavaExercises {
     }
 
     private static List<Integer> hailstoneHelper(int x, List<Integer> list) {
-        // TODO: Fill in this function.
-        return null;
+        list.add(x);
+        while (x != 1) {
+            if (x % 2 == 0) {
+                list.add(x / 2);
+                x /= 2;
+            } else {
+                list.add(x * 3 + 1);
+                x = x * 3 + 1;
+            }
+        }
+        return list;
     }
 
 }
