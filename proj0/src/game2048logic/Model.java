@@ -123,7 +123,25 @@ public class Model {
      * 2. There are two adjacent tiles with the same value.
      */
     public boolean atLeastOneMoveExists() {
-        // TODO: Task 3. Fill in this function.
+        if (emptySpaceExists()) {
+            return true;
+        }
+        int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+        for (int i = 0; i < size(); i++) {
+            for (int j = 0; j < size(); j++) {
+                Tile t = tile(i, j);
+                for (int[] direction : directions) {
+                    int ni = i + direction[0];
+                    int nj = j + direction[1];
+                    if ((ni >= 0 && ni < size()) && (nj >= 0 && nj < size())) {
+                        Tile nt = tile(ni, nj);
+                        if (t.value() == nt.value()) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
         return false;
     }
 
