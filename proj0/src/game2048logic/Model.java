@@ -170,7 +170,7 @@ public class Model {
                 targetY = j;
             } else if (newTile.value() == myValue && !newTile.wasMerged()) {
                 targetY = j;
-                score = myValue * 2;
+                score += myValue * 2;
                 break;
             } else {
                 break;
