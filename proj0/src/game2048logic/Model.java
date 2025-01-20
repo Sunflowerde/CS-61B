@@ -170,6 +170,7 @@ public class Model {
                 targetY = j;
             } else if (newTile.value() == myValue && !newTile.wasMerged()) {
                 targetY = j;
+                score = myValue * 2;
                 break;
             } else {
                 break;
@@ -186,7 +187,12 @@ public class Model {
      * so we are tilting the tiles in this column up.
      * */
     public void tiltColumn(int x) {
-        // TODO: Task 7. Fill in this function.
+        for (int j = size() - 1; j >= 0; j--) {
+            Tile tmpTile = board.tile(x, j);
+            if (tmpTile != null) {
+                moveTileUpAsFarAsPossible(x, j);
+            }
+        }
     }
 
     public void tilt(Side side) {
