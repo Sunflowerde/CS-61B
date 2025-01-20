@@ -196,8 +196,16 @@ public class Model {
     }
 
     public void tilt(Side side) {
-        for (int i = 0; i < size(); i++) {
-            tiltColumn(i);
+        if (side == Side.NORTH) {
+            for (int i = 0; i < size(); i++) {
+                tiltColumn(i);
+            }
+        } else {
+            board.setViewingPerspective(side);
+            for (int i = 0; i < size(); i++) {
+                tiltColumn(i);
+            }
+            board.setViewingPerspective(Side.NORTH);
         }
     }
 
