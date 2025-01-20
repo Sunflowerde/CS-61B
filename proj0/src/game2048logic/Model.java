@@ -196,7 +196,9 @@ public class Model {
     }
 
     public void tilt(Side side) {
-        // TODO: Tasks 8 and 9. Fill in this function.
+        for (int i = 0; i < size(); i++) {
+            tiltColumn(i);
+        }
     }
 
     /** Tilts every column of the board toward SIDE.
