@@ -164,7 +164,21 @@ public class Model {
         int myValue = currTile.value();
         int targetY = y;
 
-        // TODO: Tasks 5, 6, and 10. Fill in this function.
+        int endY = size() - 1;
+        for (int j = y; j < size(); j++) {
+            Tile newTile = board.tile(x, j);
+            if (newTile != null) {
+                if (newTile.value() != currTile.value()) {
+                    endY = j - 1;
+                    break;
+                }
+            }
+        }
+        if (y != endY) {
+            board.move(x, endY, currTile);
+        }
+
+        
     }
 
     /** Handles the movements of the tilt in column x of board B
