@@ -59,4 +59,19 @@ public class LinkedListDeque61BTest {
      }
 
     // Below, you'll write your own tests for LinkedListDeque61B.
+    @Test
+    public void addLastTest1() {
+         Deque61B<String> a = new LinkedListDeque61B<>();
+         a.addLast("Happy");
+         a.addLast("New");
+         a.addLast("Year");
+         assertThat(a.toList()).containsExactly("Happy", "New", "Year").inOrder();
+    }
+
+    @Test
+    public void test2() {
+         Deque61B<Integer> a = new LinkedListDeque61B<>();
+         a.addLast(1);
+         assertThat(a.toList()).contains(1);
+    }
 }
