@@ -74,4 +74,16 @@ public class LinkedListDeque61BTest {
          a.addLast(1);
          assertThat(a.toList()).contains(1);
     }
+
+    @Test
+    public void isEmptyTest() {
+         Deque61B<Integer> a = new LinkedListDeque61B<>();
+         assertThat(a.toList()).isEmpty();
+    }
+
+    @Test
+    public void sizeTest() {
+         Deque61B<Integer> a =new LinkedListDeque61B<>();
+         assertThat(a.size() == a.toList().size()).isTrue();
+    }
 }
