@@ -86,4 +86,22 @@ public class LinkedListDeque61BTest {
          Deque61B<Integer> a =new LinkedListDeque61B<>();
          assertThat(a.size() == a.toList().size()).isTrue();
     }
+
+    @Test
+    public void getTest() {
+         Deque61B<Integer> a = new LinkedListDeque61B<>();
+         a.addLast(4);
+         a.addLast(3);
+         a.addLast(1);
+         assertThat(a.get(2) == 1).isTrue();
+    }
+
+    @Test
+    public void getRecursiveTest() {
+        Deque61B<Integer> a = new LinkedListDeque61B<>();
+        a.addLast(4);
+        a.addLast(3);
+        a.addLast(1);
+        assertThat(a.getRecursive(2) == 1).isTrue();
+    }
 }
