@@ -8,7 +8,7 @@ import java.util.Formatter;
 
 
 /** The state of a game of 2048.
- *  @author P. N. Hilfinger + Josh Hug
+ *  @author P. N. Hilfinger + Josh Hugwu
  */
 public class Model {
     /** Current contents of the board. */
@@ -147,7 +147,6 @@ public class Model {
 
     /**
      * Moves the tile at position (x, y) as far up as possible.
-     *
      * Rules for Tilt:
      * 1. If two Tiles are adjacent in the direction of motion (ignoring empty space)
      *    and have the same value, they are merged into one Tile of twice the original

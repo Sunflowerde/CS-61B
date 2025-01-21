@@ -50,7 +50,7 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
 
     private Node sentinel;
 
-    private class Node {
+    public class Node {
         T item;
         Node prev;
         Node next;
@@ -61,8 +61,8 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
     }
 
     public LinkedListDeque61B() {
-        sentinel = new Node(null);
-        sentinel.prev = sentinel;
+        Node sentinel = new Node(null);
         sentinel.next = sentinel;
+        sentinel.prev = sentinel;
     }
 }
