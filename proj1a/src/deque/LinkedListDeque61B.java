@@ -25,11 +25,7 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
         newNode.next = sentinel;
         newNode.prev = sentinel.prev;
 
-        if (sentinel.prev != sentinel) {
-            sentinel.prev.next = newNode;
-        } else {
-            sentinel.next = newNode;
-        }
+        sentinel.prev.next = newNode;
         sentinel.prev = newNode;
 
         size += 1;
@@ -38,9 +34,9 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
     @Override
     public List<T> toList() {
         List<T> returnList = new ArrayList<>();
-        Node p = sentinel;
-        while (p.next != sentinel) {
-            returnList.add(p.next.item);
+        Node p = sentinel.next;
+        while (p != sentinel) {
+            returnList.add(p.item);
             p = p.next;
         }
         return returnList;
@@ -48,7 +44,7 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
 
     @Override
     public boolean isEmpty() {
-        return sentinel.prev == sentinel;
+        return size == 0;
     }
 
     @Override
@@ -58,14 +54,15 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
 
     @Override
     public T removeFirst() {
-        if (sentinel.prev == sentinel) {
+        if (isEmpty()) {
             return null;
         }
         Node removeNode = sentinel.next;
         sentinel.next = removeNode.next;
-        if (sentinel.next != null) {
-            sentinel.next.prev = sentinel;
-        }
+        removeNode.next.prev = sentinel;
+
+        size -= 1;
+
         removeNode.next = null;
         removeNode.prev = null;
         return removeNode.item;
@@ -73,14 +70,15 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
 
     @Override
     public T removeLast() {
-        if (sentinel.prev == sentinel) {
+        if (isEmpty()) {
             return null;
         }
         Node removeNode = sentinel.prev;
         sentinel.prev = removeNode.prev;
-        if (sentinel.next != null) {
-            sentinel.prev.next = sentinel;
-        }
+        removeNode.prev.next = sentinel;
+
+        size -= 1;
+
         removeNode.next = null;
         removeNode.prev = null;
         return removeNode.item;
