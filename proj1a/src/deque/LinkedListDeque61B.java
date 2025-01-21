@@ -5,7 +5,12 @@ import java.util.List;
 public class LinkedListDeque61B<T> implements Deque61B<T> {
     @Override
     public void addFirst(T x) {
+        Node newNode = new Node(x);
+        newNode.next = sentinel.next;
+        newNode.prev = sentinel;
 
+        sentinel.next.prev = newNode;
+        sentinel.next = newNode;
     }
 
     @Override
@@ -61,7 +66,7 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
     }
 
     public LinkedListDeque61B() {
-        Node sentinel = new Node(null);
+        sentinel = new Node(null);
         sentinel.next = sentinel;
         sentinel.prev = sentinel;
     }
