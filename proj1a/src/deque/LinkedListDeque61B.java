@@ -76,7 +76,14 @@ public class LinkedListDeque61B<T> implements Deque61B<T> {
         if (sentinel.prev == sentinel) {
             return null;
         }
-        return null;
+        Node removeNode = sentinel.prev;
+        sentinel.prev = removeNode.prev;
+        if (sentinel.next != null) {
+            sentinel.prev.next = sentinel;
+        }
+        removeNode.next = null;
+        removeNode.prev = null;
+        return removeNode.item;
     }
 
     @Override

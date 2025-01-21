@@ -110,4 +110,11 @@ public class LinkedListDeque61BTest {
          a.addLast(1);
          assertThat(a.removeFirst() == 1).isTrue();
     }
+
+    @Test
+    public void removeLastTest() {
+         Deque61B<Integer> a = new LinkedListDeque61B<>();
+         a.addLast(1);
+         assertThat(a.removeLast() == 1).isTrue();
+    }
 }
