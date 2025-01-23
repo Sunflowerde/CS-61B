@@ -8,7 +8,6 @@ public class BombMain {
         if (args.length > 0) {
             phase = Integer.parseInt(args[0]);
         }
-        // TODO: Find the correct inputs (passwords) to each phase using debugging techniques
         Bomb b = new Bomb();
         if (phase >= 0) {
             b.phase0("39291226");
